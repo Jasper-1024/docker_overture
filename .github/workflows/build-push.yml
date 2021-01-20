@@ -36,4 +36,3 @@ jobs:
           push: true
           tags: |
             jasperhale/overture_test:latest
-            jasperhale/overture_test:v1.7-rc4
