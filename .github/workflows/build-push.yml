@@ -14,6 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
+          ref: master
+          path: /
           persist-credentials: false # 持久凭证设置为false,actions/checkout@v2 需要
 
       - name: Set up QEMU # 多平台构建需要
@@ -34,4 +36,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: jasperhale/overture_test:latest
+          tags: jasperhale/overture_test2:latest
