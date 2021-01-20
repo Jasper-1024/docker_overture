@@ -2,8 +2,8 @@ name: Publish Docker image
 
 on:
   push:
-    branches: # 仅 master 分支
-      - master
+    # branches: # 仅 master 分支
+    #   - master
     tags: # 仅带 tag:v* 时构建
       - v*
 
