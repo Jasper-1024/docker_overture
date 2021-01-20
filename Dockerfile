@@ -9,8 +9,8 @@ ENV TMP_DIR="${OVERTURE_HOME}/tmp"
 RUN echo "export DATA_DIR=${DATA_DIR}" >> /etc/profile  \
     && echo "export OVERTURE_HOME=${OVERTURE_HOME}" >> /etc/profile
 
-COPY getfilter.sh /getfilter.sh
-COPY start.sh  /start.sh
+COPY ./shell/getfilter.sh /getfilter.sh
+COPY ./shell/start.sh  /start.sh
 
 RUN set -xe  \
     && apk add --no-cache unzip curl  \
@@ -26,8 +26,8 @@ RUN set -xe  \
     &&  echo '0 2 * * *  sh  /start.sh'>>/var/spool/cron/crontabs/root  
 #    && apk del unzip curl 
 
-COPY config.json "$OVERTURE_HOME/config.yml"
-COPY entrypoint.sh /entrypoint.sh
+COPY config.yml "$OVERTURE_HOME/config.yml"
+COPY ./shell/entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
 EXPOSE 53
