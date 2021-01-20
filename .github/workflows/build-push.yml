@@ -3,8 +3,8 @@ on:
   push:
     branches: # 仅 master 分支
       - master
-    tags: # 仅带 tag:v* 时构建
-      - v*
+    # tags: # 仅带 tag:v* 时构建
+    #   - v*
 
 jobs:
   push-to-registry:
