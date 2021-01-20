@@ -4,8 +4,13 @@ on:
   push:
     branches: # 仅 master 分支
       - master
-    # tags: # 仅带 tag:v* 时构建
-    #   - v*
+    tags: # 仅带 tag:v* 时构建
+      - v*
+
+env:
+  # 设置 docker 镜像名
+  IMAGE_NAME: test
+  IMAGE_ID: jasperhale/$IMAGE_NAME
 
 jobs:
   path-context:
@@ -29,6 +34,21 @@ jobs:
         with: # 获取用户名/密码
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # 获得仓库中的ReleaseTag
+      # - name: Get version
+      #   id: vars
+      #   run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      - name: Check output
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ steps.vars.outputs.tag }}
+
 
       - name: Build and push
         uses: docker/build-push-action@v2
