@@ -39,4 +39,4 @@ jobs:
           push: true
           tags: |
             jasperhale/test:latest
-            jasperhale/test:v3
+            jasperhale/test:v4
