@@ -1,0 +1,44 @@
+bindAddress: :53
+debugHTTPAddress: 127.0.0.1:5555
+dohEnabled: false
+primaryDNS:
+  - name: Ali
+    address: https://dns.alidns.com/dns-query
+    protocol: https
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: auto
+      externalIP:
+      noCookie: true
+alternativeDNS:
+  - name: Google
+    address: dns.google:853@8.8.4.4
+    protocol: tcp-tls
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: auto
+      externalIP:
+      noCookie: true
+onlyPrimaryDNS: false
+ipv6UseAlternativeDNS: false
+alternativeDNSConcurrent: false
+whenPrimaryDNSAnswerNoneUse: alternativeDNS
+ipNetworkFile:
+  primary: ./data/china_ip_list.txt
+  alternative: ./ip_network_alternative_sample
+domainFile:
+  primary: ./data/china_list.txt
+  alternative: ./data/gfw_list.txt
+  matcher: suffix-tree
+hostsFile:
+  hostsFile: ./hosts_sample
+  finder: full-map
+minimumTTL: 0
+domainTTLFile: ./domain_ttl_sample
+cacheSize: 1000
+cacheRedisUrl:
+cacheRedisConnectionPoolSize:
+rejectQType:
+  - 255
