@@ -48,5 +48,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            jasperhale/test:latest
-            jasperhale/test:${{ steps.vars.outputs.tag }}
+            jasperhale/overture:latest
+            jasperhale/overture:${{ steps.vars.outputs.tag }}
