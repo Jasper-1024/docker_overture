@@ -13,14 +13,6 @@ If you want to know about config,you can refer to the following url.
 
 ## Pull the image
 
-拉取镜像
-
-```bash
-docker pull jasperhale/overture
-```
-
----
-
 Pull the image
 
 ```bash
@@ -64,3 +56,11 @@ run as a overture server like below:
 ```bash
 docker-compose up -f docker-compose.yml up -d
 ```
+
+## Support
+
+If you encounter any bugs, you can open a new [issue](https://github.com/Jasper-1024/docker_overture/issues)
+
+If you have other questions, you can email me.
+
+> <ljy087621@gmail.com>
