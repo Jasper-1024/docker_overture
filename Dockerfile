@@ -30,7 +30,9 @@ COPY config.yml "$OVERTURE_HOME/config.yml"
 COPY ./shell/entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
-EXPOSE 53
+EXPOSE 53/tcp
+EXPOSE 53/udp
+
 VOLUME "$DATA_DIR"
 
 ENTRYPOINT [ "/entrypoint.sh" ]
