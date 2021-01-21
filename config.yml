@@ -11,9 +11,27 @@ primaryDNS:
       policy: auto
       externalIP:
       noCookie: true
+  - name: Dnspod
+    address: https://doh.pub/dns-query
+    protocol: https
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: auto
+      externalIP:
+      noCookie: true
 alternativeDNS:
   - name: Google
     address: dns.google:853@8.8.4.4
+    protocol: tcp-tls
+    socks5Address:
+    timeout: 6
+    ednsClientSubnet:
+      policy: auto
+      externalIP:
+      noCookie: true
+  - name: Cloudflare
+    address: one.one.one.one:853@1.0.0.1
     protocol: tcp-tls
     socks5Address:
     timeout: 6
