@@ -1,7 +1,7 @@
 FROM alpine:latest
 LABEL authors "jasperhale <ljy087621@gmail.com>"
 
-ENV VERSION v1.7-rc4
+ENV VERSION v1.7
 ENV OVERTURE_HOME="/home/overture"
 ENV DATA_DIR="${OVERTURE_HOME}/data"
 ENV TMP_DIR="${OVERTURE_HOME}/tmp"
