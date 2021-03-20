@@ -10,7 +10,7 @@ RUN echo "export DATA_DIR=${DATA_DIR}" >> /etc/profile  \
     && echo "export OVERTURE_HOME=${OVERTURE_HOME}" >> /etc/profile
 
 COPY ./shell/getfilter.sh /getfilter.sh
-COPY ./shell/start.sh  /start.sh
+# COPY ./shell/start.sh  /start.sh
 
 RUN set -xe  \
     && apk add --no-cache unzip curl  \
@@ -21,10 +21,10 @@ RUN set -xe  \
     && mv "$TMP_DIR/overture-linux-amd64" "$OVERTURE_HOME/overture"  \
     && rm -rf "overture-linux-amd64.zip"  "${TMP_DIR}"\
     && chmod a+x /getfilter.sh  \
-    && sh /getfilter.sh  \
-    && chmod a+x /start.sh  \
-    &&  echo '0 2 * * *  sh  /start.sh'>>/var/spool/cron/crontabs/root  
-#    && apk del unzip curl 
+    && sh /getfilter.sh 
+    # && chmod a+x /start.sh
+    # &&  echo '0 2 * * *  sh  /start.sh'>>/var/spool/cron/crontabs/root  
+    # && apk del unzip curl 
 
 COPY config.yml "$OVERTURE_HOME/config.yml"
 COPY ./shell/entrypoint.sh /entrypoint.sh

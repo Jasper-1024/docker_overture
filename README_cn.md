@@ -38,13 +38,13 @@ docker pull jasperhale/overture
 * 域名分流,国内常见域名直走主 DNS,GFW list 直走 副DNS.
 * IP 分流,主 DNS 结果为国内 IP,直接采用,不再等待副 DNS.
 
-直接运行,镜像运行只能以 `-d` 直接运行在后台.
+运行镜像,后台运行添加 `-d`.
 
 ```bash
-docker run -d -p 53:53 -p 53:53/udp jasperhale/overture
+docker run -p 53:53 -p 53:53/udp jasperhale/overture
 ```
 
-使用 docker-compose.启动同样需要 `-d`
+使用 docker-compose.
 
 ```yml
 version: '3'
@@ -59,5 +59,5 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
-      - - ./config.json:/home/overture/config.json
+      - - ./config.yml:/home/overture/config.yml
 ```

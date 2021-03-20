@@ -48,7 +48,7 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
-      - - ./config.json:/home/overture/config.json
+      - - ./config.yml:/home/overture/config.yml
 ```
 
 run as a overture server like below:
