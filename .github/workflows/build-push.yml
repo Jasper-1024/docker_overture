@@ -7,6 +7,8 @@ on:
     tags: # 仅带 tag:v* 时构建
       - v*
       # - V*
+  schedule: # utc 21 点 北京时间 5点
+    - cron: '0 21 * * *'
 
 env:
   # 设置 docker 镜像名
@@ -47,6 +49,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
+          # 添加时间标签
           tags: |
             jasperhale/overture:latest
-            jasperhale/overture:${{ steps.vars.outputs.tag }}
+            jasperhale/overture:${{ steps.vars.outputs.tag }}-${{ steps.date.outputs.today }}
