@@ -52,4 +52,5 @@ jobs:
           # 添加时间标签
           tags: |
             jasperhale/overture:latest
+            jasperhale/overture:${{ steps.vars.outputs.tag }}
             jasperhale/overture:${{ steps.vars.outputs.tag }}-${{ steps.date.outputs.today }}
