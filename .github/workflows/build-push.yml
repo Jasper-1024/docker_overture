@@ -38,9 +38,17 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Get current date # 获取 时间
+        id: date
+        run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
+
       - name: Get version # 获取 Tag Version
         id: vars
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -52,5 +60,5 @@ jobs:
           # 添加时间标签
           tags: |
             jasperhale/overture:latest
-            jasperhale/overture:${{ steps.vars.outputs.tag }}
-            jasperhale/overture:${{ steps.vars.outputs.tag }}-${{ steps.date.outputs.today }}
+            jasperhale/overture:${{ steps.get_version.outputs.VERSION }}
+            jasperhale/overture:${{ steps.get_version.outputs.VERSION }}-${{ steps.date.outputs.today }}
