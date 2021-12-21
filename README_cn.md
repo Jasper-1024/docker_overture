@@ -31,7 +31,7 @@ docker pull jasperhale/overture
 
 ## 运行 / Start a container
 
-默认配置文件在 `/home/overture/config.yml`
+默认配置文件在  `/home/overture/config.yml`
 
 * 主 DNS 是阿里 DNS,走 DOH.
 * 副 DNS 是 Google DNS,走 DOT.(选择 Google DNS 因为其 cdn 解析更准确)
